@@ -4,22 +4,58 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".MainActivity">
+    tools:context=".ChooseActivity">
 
-    <Spinner
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/fromCountry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@id/toCountry"
+        android:layout_marginBottom="15dp"
+        android:layout_centerHorizontal="true">
 
-    <Spinner
-        android:id="@+id/toCountry"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Departure Country"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginRight="15dp"
+            android:textSize="18sp"/>
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/fromCountry"
+        android:id="@+id/toCountry"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp" />
-    
+        android:layout_marginBottom="25dp"
+        android:layout_above="@id/start">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Arrival Country"
+            android:textColor="@color/black"
+            android:layout_marginRight="15dp"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:text="Go!"
+        android:id="@+id/start"/>
+
     <!--Nav Bar-->
     <LinearLayout
         android:id="@+id/nav"
