@@ -3,99 +3,132 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="24dp"
     tools:context=".ChooseActivity">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/fromCountry"
-        android:layout_above="@id/toCountry"
-        android:layout_marginBottom="15dp"
-        android:layout_centerHorizontal="true">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/fromCountry"
+                android:layout_above="@id/toCountry"
+                android:layout_marginTop="100dp"
+                android:layout_marginBottom="15dp"
+                android:layout_centerHorizontal="true">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Departure Country"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_marginRight="15dp"
-            android:textSize="20sp"/>
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/dCountry"/>
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Departure Country"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="15dp"
+                    android:textSize="20sp"/>
+                <Spinner
+                    android:layout_width="fill_parent"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/dCountry"
+                    />
+            </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/toCountry"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="15dp"
-        android:layout_above="@id/arrival">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/toCountry"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="15dp"
+                android:layout_above="@id/arrival">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Arrival Country"
-            android:textColor="@color/black"
-            android:layout_marginRight="15dp"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/aCountry"/>
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Arrival Country"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="15dp"
+                    android:textStyle="bold"
+                    android:textSize="20sp"/>
+                <Spinner
+                    android:layout_width="fill_parent"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/aCountry"/>
+            </LinearLayout>
 
-    <!--Date Picker-->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/arrival"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@id/goButtons">
+            <!--Date Picker-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/arrival"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@id/goButtons"
+                android:gravity="center">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Arrival Date"
-            android:textColor="@color/black"
-            android:layout_marginRight="15dp"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/goButtons">
-        <Button
-            android:layout_marginTop="25dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:text="Get Info"
-            android:textSize="20sp"
-            android:id="@+id/getInfo"
-            android:layout_marginRight="15dp"/>
-        <Button
-            android:layout_marginTop="25dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:text="Go!"
-            android:textSize="20sp"
-            android:id="@+id/start"/>
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Arrival Date"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="15dp"
+                    android:textStyle="bold"
+                    android:textSize="20sp"/>
+                <Button
+                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    style="?android:spinnerStyle"
+                    android:textSize="20sp"
+                    android:id="@+id/date"
+                    android:onClick="openDatePicker"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/goButtons">
+                <Button
+                    android:layout_marginTop="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="Get Info"
+                    android:textSize="20sp"
+                    android:id="@+id/getInfo"
+                    android:layout_marginRight="15dp"/>
+                <Button
+                    android:layout_marginTop="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="Go!"
+                    android:textSize="20sp"
+                    android:id="@+id/start"/>
+            </LinearLayout>
+            <TextView
+                android:layout_marginTop="40dp"
+                android:padding="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:id="@+id/infoCard"/>
+        </LinearLayout>
+    </ScrollView>
+
 
     <!--Nav Bar-->
     <LinearLayout
@@ -104,6 +137,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:gravity="center"
+        android:layout_marginTop="15dp"
         android:orientation="horizontal">
 
         <ImageButton

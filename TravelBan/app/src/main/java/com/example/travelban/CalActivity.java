@@ -10,9 +10,9 @@ import android.widget.ImageButton;
 
 public class CalActivity extends AppCompatActivity implements View.OnClickListener{
 
-    ImageButton homeB;
-    ImageButton chooseB;
-    ImageButton calB;
+    private ImageButton homeB;
+    private ImageButton chooseB;
+    private ImageButton calB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

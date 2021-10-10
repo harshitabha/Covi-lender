@@ -5,12 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CalActivity"
-    android:padding="16dp">
+    android:padding="24dp">
 
+    <!--We now have a working calendar but
+    it only shows the current date initially
+    need to work on fixing this
+    however we can switch months-->
     <CalendarView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_centerVertical="true"/>
+
     <!--Nav Bar-->
     <LinearLayout
         android:id="@+id/nav"
