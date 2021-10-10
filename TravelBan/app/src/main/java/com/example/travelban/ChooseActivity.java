@@ -20,7 +20,7 @@ import java.util.Date;
 
 public class ChooseActivity
         extends AppCompatActivity
-        implements View.OnClickListener, android.widget.DatePicker.OnDateChangedListener {
+        implements View.OnClickListener {
 
     private ImageButton homeB;
     private ImageButton chooseB;
@@ -33,6 +33,11 @@ public class ChooseActivity
     private Spinner aCountry;
 
     private TextView infoCard;
+
+    //selected date month and year
+    private static int mSelect;
+    private static int dSelect;
+    private static int ySelect;
 
     private DatePickerDialog datePickerDialog;
 
@@ -182,6 +187,10 @@ public class ChooseActivity
                 month = month + 1;
                 String date = makeDateString(day, month, year);
                 dateButton.setText(date);
+                // for sending vars to next screen
+                mSelect = month;
+                dSelect = day;
+                ySelect = year;
             }
         };
 
@@ -221,8 +230,9 @@ public class ChooseActivity
         datePickerDialog.show();
     }
 
-    @Override
-    public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+    // to get the date month and year
+    public static int getMonth() { return mSelect; }
+    public static int getDay() { return dSelect; }
+    public static int getYear() { return ySelect; }
 
-    }
 }
