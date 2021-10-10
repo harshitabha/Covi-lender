@@ -1,7 +1,5 @@
 package com.example.travelban;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -14,13 +12,15 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 public class ChooseActivity
         extends AppCompatActivity
-        implements View.OnClickListener, android.widget.DatePicker.OnDateChangedListener{
+        implements View.OnClickListener, android.widget.DatePicker.OnDateChangedListener {
 
     private ImageButton homeB;
     private ImageButton chooseB;
@@ -105,54 +105,80 @@ public class ChooseActivity
 
     }
 
-    private void updateInfoCard(int countryA, int countryB){
+    private void updateInfoCard(int countryA, int countryB) {
 
-        /*let US = ["","Unvaccinated visitors from the United States need to provide a negative COVID-19 test result and quarantine to enter the United " +
-                "Kingdom.Fully vaccinated visitors from the United States can enter the United Kingdom without restrictions.",
-                "Most visitors from the United States will not be allowed to enter India",
-                "Most visitors from the United States will not be allowed to enter China.","Most visitors from the United States
-        will not be allowed to enter Japan."]; // from this country
+        String[] US = {"",
+                "Unvaccinated visitors from the United States need to provide a negative COVID-19 test result and quarantine to enter the United Kingdom." +
+                        " Fully vaccinated visitors from the United States can enter the United Kingdom without restrictions. Unvaccinated visitors from the United States will " +
+                        "need to quarantine for 10 days upon entering the United Kingdom. Fully vaccinated visitors with approved vaccination certificates do not need to quarantine.",
+                "Most visitors from the United States will not be allowed to enter India. Visitors from the United States will need to quarantine for 14 days upon entering India." +
+                        " Details and exceptions apply. Anyone arriving to India will be required to go into 7 days quarantine at an institution at their own cost, followed by 7 days self-quarantine.",
+                "Most visitors from the United States will not be allowed to enter China. Visitors from the United States will need to quarantine for 14 days upon entering China.",
+                "Most visitors from the United States will not be allowed to enter Japan. Visitors from the United States will need to quarantine for 14 days upon entering Japan."};
 
-        let UK = ["Most visitors from the United Kingdom will not be allowed to enter the United States.","","Most visitors from the United Kingdom will
-        not be allowed to enter India.","Most visitors from the United Kingdom will not be allowed to enter China.","Most visitors from the United Kingdom
-        will not be allowed to enter Japan."];
+        String[] UK = {"Most visitors from the United Kingdom will not be allowed to enter the United States. Visitors from the United Kingdom are not required to " +
+                "quarantine after entering the United States. Details and exceptions apply. Travelers are not required but recommended to quarantine between 7-10 days after " +
+                "arrival in the US.",
+                "",
+                "Most visitors from the United Kingdom will not be allowed to enter India. Visitors from the United Kingdom will need to quarantine " +
+                        "for 14 days upon entering India. Details and exceptions apply. Anyone arriving to India will be required to go into 7 days quarantine at an institution at their own cost, " +
+                        "followed by 7 days self-quarantine.",
+                "Most visitors from the United Kingdom will not be allowed to enter China. Visitors from the United Kingdom will need to quarantine for 14 days upon entering China.",
+                "Most visitors from the United Kingdom will not be allowed to enter Japan. Visitors from the United Kingdom will need to quarantine for 14 days upon entering Japan."};
 
-        let India = ["Most visitors from India will not be allowed to enter the United States.","Unvaccinated visitors from India need to provide a negative
-        COVID-19 test result and quarantine to enter the United Kingdom.Fully vaccinated visitors from India can enter the United Kingdom without restrictions.","","Most visitors from India will not be allowed to enter China.","Most visitors
-        from India will not be allowed to enter Japan."];
+        String[] India = {"Most visitors from India will not be allowed to enter the United States. Visitors from India are not required to quarantine after entering the United States. " +
+                "Details and exceptions apply. Travelers are not required but recommended to quarantine between 7 - 10 days after arrival in the US.",
+                "Unvaccinated visitors from India need to provide a negative COVID - 19 test result and quarantine to enter the United Kingdom. Fully " +
+                        "vaccinated visitors from India can enter the United Kingdom without restrictions. Unvaccinated visitors from India will need " +
+                        "to quarantine for 10 days upon entering the United Kingdom. Fully vaccinated visitors with approved vaccination certificates do not" +
+                        " need to quarantine.",
+                " ",
+                "Most visitors from India will not be allowed to enter China. Visitors from India will need to quarantine for 14 days upon entering China.",
+                "Most visitors from India will not be allowed to enter Japan. Visitors from India will need to quarantine for 14 days upon entering Japan."};
 
-        let China = ["Most visitors from China will not be allowed to enter the United States.","Unvaccinated visitors from China need to provide a
-        negative COVID-19 test result and quarantine to enter the United Kingdom. Fully vaccinated visitors from China can enter the United Kingdom without
-        restrictions.","Most visitors from China will not be allowed to enter India.","","Most visitors from China will not be allowed to enter the Japan."];
+        String[] China = {"Most visitors from China will not be allowed to enter the United States. Visitors from China are not required to quarantine after entering " +
+                "the United States. Details and exceptions apply. Travelers are not required but recommended to quarantine between 7 - 10 days after arrival in the US.",
+                "Unvaccinated visitors from China need to provide a negative COVID -19 test result and quarantine to enter the United Kingdom. Fully vaccinated" +
+                        "visitors from China can enter the United Kingdom without restrictions. Unvaccinated visitors from China will need to quarantine for " +
+                        "10 days upon entering the United Kingdom.Fully vaccinated visitors with approved vaccination certificates do not need to quarantine.",
+                "Most visitors from China will not be allowed to enter India.Visitors from China will need to quarantine for 14 days upon entering India. Details and exceptions apply." +
+                        " Anyone arriving to India will be required to go into 7 days quarantine at an institution at their own cost, followed by 7 days self -quarantine. ",
+                " ",
+                "Most visitors from China will not be allowed to enter the Japan. Visitors from China will need to quarantine for 14 days upon entering Japan. Details and exceptions " +
+                        "apply. All travelers, including Japanese nationals, are required to quarantine at a location designated by the quarantine station chief. Travelers are " +
+                        "required to take the COVID - 19 test again on the 3 rd day of quarantine. Travelers who test negative are still required to self - " +
+                        "quarantine at home until completion of 14 days after entering Japan."};
 
-        let Japan = ["Most visitors from Japan need to provide a negative COVID-19 test result to enter the United States.","Unvaccinated visitors from
-        Japan need to provide a negative COVID-19 test result and quarantine to enter the United Kingdom.Fully vaccinated visitors from Japan can enter
-        the United Kingdom without restrictions.","Most visitors from Japan will not be allowed to enter India.","Most visitors from Japan will not be allowed to enter China.",""];
+        String[] Japan = {"Most visitors from Japan need to provide a negative COVID-19 test result to enter the United States. Visitors from Japan are not required to quarantine " +
+                "after entering the United States. Details and exceptions apply. Travelers are not required but are recommended to quarantine between 7 - 10 days after " +
+                "arrival in the US.",
+                "Unvaccinated visitors from Japan need to provide a negative COVID - 19 test result and quarantine to enter the United Kingdom. Fully vaccinated visitors from " +
+                        "Japan can enter the United Kingdom without restrictions. Unvaccinated visitors from Japan will need to quarantine for 10 days upon entering the United " +
+                        "Kingdom. Fully vaccinated visitors with approved vaccination certificates do not need to quarantine.",
+                "Most visitors from Japan will not be allowed to enter India. Visitors from Japan will need to quarantine for 14 days upon entering India.",
+                "Most visitors from Japan will not be allowed to enter China. Visitors from Japan will need to quarantine for 14 days upon entering China.",
+                ""};
 
-        let countries = [US,UK,India,China,Japan];
+        String[][] countries = {US, UK, India, China, Japan};
         infoCard.setText(countries[countryA][countryB]);
-        */
+
     }
 
-    private int getCountryIndex(String country)
-    {
+    private int getCountryIndex(String country) {
         int index;
 
-        if(country.equals("USA")) index = 0;
-        else if(country.equals("United Kingdom")) index = 1;
-        else if(country.equals("India")) index = 2;
-        else if(country.equals("China")) index = 3;
+        if (country.equals("USA")) index = 0;
+        else if (country.equals("United Kingdom")) index = 1;
+        else if (country.equals("India")) index = 2;
+        else if (country.equals("China")) index = 3;
         else index = 4;
         return index;
     }
 
-    private void initDatePicker()
-    {
-        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener()
-        {
+    private void initDatePicker() {
+        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day)
-            {
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
                 String date = makeDateString(day, month, year);
                 dateButton.setText(date);
@@ -170,27 +196,26 @@ public class ChooseActivity
     }
 
     //channing the date formatting so it days the month abr, date, then year to avoid confusion
-    private String makeDateString(int day, int month, int year)
-    {
+    private String makeDateString(int day, int month, int year) {
         return getMonthFormat(month) + " " + day + " " + year;
     }
 
     // figuring out which month string to return
-    private String getMonthFormat(int m)
-    {
-        if(m == 1) return "JAN";
-        else if(m == 2) return "FEB";
-        else if(m == 3) return "MAR";
-        else if(m == 4) return "APR";
-        else if(m == 5) return "MAY";
-        else if(m == 6) return "JUN";
-        else if(m == 7) return "JUL";
-        else if(m == 8) return "AUG";
-        else if(m == 9) return "SEPT";
-        else if(m == 10) return "OCT";
-        else if(m == 11) return "NOV";
+    private String getMonthFormat(int m) {
+        if (m == 1) return "JAN";
+        else if (m == 2) return "FEB";
+        else if (m == 3) return "MAR";
+        else if (m == 4) return "APR";
+        else if (m == 5) return "MAY";
+        else if (m == 6) return "JUN";
+        else if (m == 7) return "JUL";
+        else if (m == 8) return "AUG";
+        else if (m == 9) return "SEPT";
+        else if (m == 10) return "OCT";
+        else if (m == 11) return "NOV";
         return "DEC";
     }
+
     // on click listener for date picker
     public void openDatePicker(View view) {
         datePickerDialog.show();
