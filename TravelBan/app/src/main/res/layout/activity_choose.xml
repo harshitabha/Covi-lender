@@ -24,7 +24,8 @@
             android:textSize="20sp"/>
         <Spinner
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:id="@+id/dCountry"/>
     </LinearLayout>
 
     <LinearLayout
@@ -45,7 +46,8 @@
             android:textSize="20sp"/>
         <Spinner
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:id="@+id/aCountry"/>
     </LinearLayout>
 
     <!--Date Picker-->
