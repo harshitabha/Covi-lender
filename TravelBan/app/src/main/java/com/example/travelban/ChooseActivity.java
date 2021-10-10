@@ -38,6 +38,9 @@ public class ChooseActivity
     private static int mSelect;
     private static int dSelect;
     private static int ySelect;
+    private static String selectedDCountry;
+    private static String selectedACountry;
+    private static Boolean dateSet;
 
     private DatePickerDialog datePickerDialog;
 
@@ -54,6 +57,8 @@ public class ChooseActivity
         go = findViewById(R.id.start);
         dateButton = (Button) findViewById(R.id.date);
         infoCard = findViewById(R.id.infoCard);
+
+        dateSet = false;
 
         // Nav Onclick Listeners
         homeB.setOnClickListener(new View.OnClickListener() {
@@ -96,13 +101,20 @@ public class ChooseActivity
         String tDate = DateFormat.getDateInstance().format(new Date());
         dateButton.setText(tDate);
         initDatePicker();
+        go.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cal = new Intent(ChooseActivity.this, CalActivity.class);
+                startActivity(cal);
+            }
+        });
     }
 
     // on click listener for the info button
     @Override
     public void onClick(View v) {
-        String selectedDCountry = dCountry.getSelectedItem().toString();
-        String selectedACountry = aCountry.getSelectedItem().toString();
+        selectedDCountry = dCountry.getSelectedItem().toString();
+        selectedACountry = aCountry.getSelectedItem().toString();
         int dCountryIndex = getCountryIndex(selectedDCountry);
         int aCountryIndex = getCountryIndex(selectedACountry);
 
@@ -184,13 +196,15 @@ public class ChooseActivity
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                month = month + 1;
-                String date = makeDateString(day, month, year);
-                dateButton.setText(date);
                 // for sending vars to next screen
                 mSelect = month;
                 dSelect = day;
                 ySelect = year;
+
+                month = month + 1;
+                String date = makeDateString(day, month, year);
+                dateButton.setText(date);
+                dateSet = true;
             }
         };
 
@@ -230,9 +244,12 @@ public class ChooseActivity
         datePickerDialog.show();
     }
 
-    // to get the date month and year
+    // getter methods
     public static int getMonth() { return mSelect; }
     public static int getDay() { return dSelect; }
     public static int getYear() { return ySelect; }
+    public static String getDCountry() { return selectedDCountry; }
+    public static String getACountry() { return selectedACountry; }
+    public static Boolean getDateSet() { return dateSet; }
 
 }

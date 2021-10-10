@@ -115,7 +115,8 @@
                     android:layout_centerHorizontal="true"
                     android:text="Go!"
                     android:textSize="20sp"
-                    android:id="@+id/start"/>
+                    android:id="@+id/start"
+                    android:onClick="submit"/>
             </LinearLayout>
             <TextView
                 android:layout_marginTop="40dp"
