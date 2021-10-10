@@ -98,9 +98,9 @@ public class ChooseActivity
         info.setOnClickListener(this);
 
         // date stuff
-        String tDate = DateFormat.getDateInstance().format(new Date());
-        dateButton.setText(tDate);
         initDatePicker();
+        dateButton.setText(getTodaysDate());
+
         go.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -190,6 +190,17 @@ public class ChooseActivity
         else if (country.equals("China")) index = 3;
         else index = 4;
         return index;
+    }
+
+    private String getTodaysDate()
+    {
+        Calendar cal = Calendar.getInstance();
+        ySelect = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        mSelect = month;
+        month = month + 1;
+        dSelect = cal.get(Calendar.DAY_OF_MONTH);
+        return makeDateString(dSelect, month, ySelect);
     }
 
     private void initDatePicker() {

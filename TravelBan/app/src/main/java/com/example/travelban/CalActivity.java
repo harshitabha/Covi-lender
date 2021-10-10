@@ -1,7 +1,9 @@
 package com.example.travelban;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -49,7 +51,6 @@ public class CalActivity extends AppCompatActivity implements View.OnClickListen
             qCal.setDate(milliTime, true, true);
         }
 
-
         // Nav onclick listeners
         homeB.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,5 +81,47 @@ public class CalActivity extends AppCompatActivity implements View.OnClickListen
     public void onClick(View v) {
 
 
+    }
+
+    private void showWarning() {
+        AlertDialog.Builder builder
+                = new AlertDialog
+                .Builder(CalActivity.this);
+
+        // Set the message show for the Alert time
+        builder.setMessage("Please choose an arrival date from the personalize window to view a quarantine calendar. " +
+                "It can be accessed via the right most button in the navigation bar");
+
+        // Set Alert Title
+        builder.setTitle("Warning!");
+
+        // Set Cancelable false
+        // for when the user clicks on the outside
+        // the Dialog Box then it will remain show
+        builder.setCancelable(false);
+
+        builder
+                .setPositiveButton(
+                        "OK",
+                        new DialogInterface
+                                .OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                                int which)
+                            {
+
+                                // If user click no
+                                // then dialog box is closed.
+                                dialog.cancel();
+                            }
+                        });
+
+
+        // Create the Alert dialog
+        AlertDialog alertDialog = builder.create();
+
+        // Show the Alert Dialog box
+        alertDialog.show();
     }
 }
