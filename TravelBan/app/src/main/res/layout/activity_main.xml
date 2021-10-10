@@ -39,20 +39,23 @@
             android:layout_height="40dp"
             android:backgroundTint="@color/white"
             android:layout_marginRight="30dp"
-            android:src="@drawable/calendar" />
+            android:src="@drawable/calendar"
+            android:onClick="onClick"/>
         <ImageButton
             android:id="@+id/homeB"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginRight="30dp"
             android:backgroundTint="@color/white"
-            android:src="@drawable/house"/>
+            android:src="@drawable/house"
+            android:onClick="onClick"/>
         <ImageButton
             android:id="@+id/personalizeB"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:backgroundTint="@color/white"
-            android:src="@drawable/ball_pen"/>
+            android:src="@drawable/ball_pen"
+            android:onClick="onClick"/>
     </LinearLayout>
 
 </RelativeLayout>

@@ -21,7 +21,7 @@
             android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_marginRight="15dp"
-            android:textSize="18sp"/>
+            android:textSize="20sp"/>
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -32,8 +32,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/toCountry"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="25dp"
-        android:layout_above="@id/start">
+        android:layout_marginBottom="15dp"
+        android:layout_above="@id/arrival">
 
         <TextView
             android:layout_width="wrap_content"
@@ -42,19 +42,58 @@
             android:textColor="@color/black"
             android:layout_marginRight="15dp"
             android:textStyle="bold"
-            android:textSize="18sp"/>
+            android:textSize="20sp"/>
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
-    <Button
+    <!--Date Picker-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/arrival"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/goButtons">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Arrival Date"
+            android:textColor="@color/black"
+            android:layout_marginRight="15dp"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:text="Go!"
-        android:id="@+id/start"/>
+        android:id="@+id/goButtons">
+        <Button
+            android:layout_marginTop="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:text="Get Info"
+            android:textSize="20sp"
+            android:id="@+id/getInfo"
+            android:layout_marginRight="15dp"/>
+        <Button
+            android:layout_marginTop="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:text="Go!"
+            android:textSize="20sp"
+            android:id="@+id/start"/>
+    </LinearLayout>
 
     <!--Nav Bar-->
     <LinearLayout
@@ -71,7 +110,8 @@
             android:layout_height="40dp"
             android:layout_marginRight="30dp"
             android:backgroundTint="@color/white"
-            android:src="@drawable/calendar" />
+            android:src="@drawable/calendar"
+            android:onClick="onClick"/>
 
         <ImageButton
             android:id="@+id/homeB"
@@ -79,14 +119,16 @@
             android:layout_height="40dp"
             android:layout_marginRight="30dp"
             android:backgroundTint="@color/white"
-            android:src="@drawable/house" />
+            android:src="@drawable/house"
+            android:onClick="onClick"/>
 
         <ImageButton
             android:id="@+id/personalizeB"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:backgroundTint="@color/white"
-            android:src="@drawable/ball_pen" />
+            android:src="@drawable/ball_pen"
+            android:onClick="onClick"/>
     </LinearLayout>
 
 </RelativeLayout>

@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         homeB = (ImageButton) findViewById(R.id.homeB);
         chooseB = (ImageButton) findViewById(R.id.personalizeB);
         calB = (ImageButton) findViewById(R.id.calendarB);
-        chooseB.setOnClickListener(this);
     }
 
     @Override
