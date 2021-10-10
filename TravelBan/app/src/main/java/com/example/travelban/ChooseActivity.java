@@ -98,6 +98,9 @@ public class ChooseActivity
         go.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                selectedDCountry = dCountry.getSelectedItem().toString();
+                selectedACountry = aCountry.getSelectedItem().toString();
+
                 Calendar cal = Calendar.getInstance();
                 cal.set(Calendar.MONTH, mSelect);
                 cal.set(Calendar.DAY_OF_MONTH, dSelect);
@@ -284,7 +287,7 @@ public class ChooseActivity
         int qua2 = 10;
         int qua3 = 7;
 
-        int qDate;
+        int qDate = day; // should never happen
 
         if(dCountry.equals("USA")){
             if(aCountry.equals("United Kingdom")){
@@ -356,7 +359,7 @@ public class ChooseActivity
                 qDate = day + qua1;
             }
         }
-        return formatDate(mon, day, year);
+        return formatDate(mon, qDate, year);
     }
 
     private int[] formatDate(int m, int d, int y)
