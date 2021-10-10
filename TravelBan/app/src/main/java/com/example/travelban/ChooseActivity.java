@@ -160,7 +160,7 @@ public class ChooseActivity
                 ""};
 
         String[][] countries = {US, UK, India, China, Japan};
-        infoCard.setText(countries[countryA][countryB]);
+        infoCard.setText(countries[countryA][countryB] + "\nInformation was gathered from https://www.kayak.com/travel-restrictions?&region=asia&origin=US");
 
     }
 
