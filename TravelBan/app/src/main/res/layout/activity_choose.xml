@@ -112,8 +112,7 @@
             android:layout_height="40dp"
             android:layout_marginRight="30dp"
             android:backgroundTint="@color/white"
-            android:src="@drawable/calendar"
-            android:onClick="onClick"/>
+            android:src="@drawable/calendar"/>
 
         <ImageButton
             android:id="@+id/homeB"
@@ -121,16 +120,14 @@
             android:layout_height="40dp"
             android:layout_marginRight="30dp"
             android:backgroundTint="@color/white"
-            android:src="@drawable/house"
-            android:onClick="onClick"/>
+            android:src="@drawable/house"/>
 
         <ImageButton
             android:id="@+id/personalizeB"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:backgroundTint="@color/white"
-            android:src="@drawable/ball_pen"
-            android:onClick="onClick"/>
+            android:src="@drawable/ball_pen"/>
     </LinearLayout>
 
 </RelativeLayout>

@@ -23,11 +23,8 @@ public class CalActivity extends AppCompatActivity implements View.OnClickListen
         homeB = (ImageButton) findViewById(R.id.homeB);
         chooseB = (ImageButton) findViewById(R.id.personalizeB);
         calB = (ImageButton) findViewById(R.id.calendarB);
-    }
 
-    @Override
-    public void onClick(View v) {
-
+        // Nav onclick listerners
         homeB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,7 +32,7 @@ public class CalActivity extends AppCompatActivity implements View.OnClickListen
                 startActivity(home);
             }
         });
-
+    
         chooseB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,7 +40,7 @@ public class CalActivity extends AppCompatActivity implements View.OnClickListen
                 startActivity(choose);
             }
         });
-
+    
         calB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,6 +48,11 @@ public class CalActivity extends AppCompatActivity implements View.OnClickListen
                 startActivity(cal);
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+
 
     }
 }

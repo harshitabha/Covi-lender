@@ -11,37 +11,37 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
+    <!--Nav Bar-->
     <LinearLayout
+        android:id="@+id/nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
         android:gravity="center"
-        android:id="@+id/nav">
+        android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/calendarB"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:backgroundTint="@color/white"
             android:layout_marginRight="30dp"
-            android:src="@drawable/calendar"
-            android:onClick="onClick"/>
+            android:backgroundTint="@color/white"
+            android:src="@drawable/calendar"/>
+
         <ImageButton
             android:id="@+id/homeB"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginRight="30dp"
             android:backgroundTint="@color/white"
-            android:src="@drawable/house"
-            android:onClick="onClick"/>
+            android:src="@drawable/house"/>
+
         <ImageButton
             android:id="@+id/personalizeB"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:backgroundTint="@color/white"
-            android:src="@drawable/ball_pen"
-            android:onClick="onClick"/>
+            android:src="@drawable/ball_pen"/>
     </LinearLayout>
 
 </RelativeLayout>

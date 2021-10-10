@@ -4,7 +4,7 @@
      let US = ["","Unvaccinated visitors from the United States need to provide a negative COVID-19 test result and quarantine to enter the United 
      Kingdom.Fully vaccinated visitors from the United States can enter the United Kingdom without restrictions.","Most visitors from the United States 
      will not be allowed to enter India","Most visitors from the United States will not be allowed to enter China.","Most visitors from the United States 
-     will not be allowed to enter Japan."];
+     will not be allowed to enter Japan."]; // from this country
 
      let UK = ["Most visitors from the United Kingdom will not be allowed to enter the United States.","","Most visitors from the United Kingdom will 
      not be allowed to enter India.","Most visitors from the United Kingdom will not be allowed to enter China.","Most visitors from the United Kingdom 

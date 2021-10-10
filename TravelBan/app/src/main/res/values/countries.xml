@@ -2,6 +2,10 @@
 <resources>
     
     <string-array name="countries">
-        <item></item>
+        <item>USA</item>
+        <item>United Kingdom</item>
+        <item>India</item>
+        <item>China</item>
+        <item>Japan</item>
     </string-array>
 </resources>
