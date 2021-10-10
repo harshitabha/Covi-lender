@@ -17,7 +17,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="A app to help you with isolation dates and times. This app helps you be safe while travelling with our calendar that calculates the amount of days you need to quarantine for you to be safe inside the country. Our app gives you unique advice for each country based on their current situation in covid. We provide you with all the tools for you to have the best, safest journey!"
+        android:text="An app to help you with isolation dates and times. This app helps you be safe while travelling with our calendar that calculates the amount of days you need to quarantine for you to be safe inside the country. Our app gives you unique advice for each country based on their current situation in covid. We provide you with all the tools for you to have the best, safest journey!"
         android:id="@+id/info"
         android:padding="10dp"
         android:gravity="center"
