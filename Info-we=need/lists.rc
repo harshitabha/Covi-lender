@@ -1,0 +1,48 @@
+ fn main(){
+
+    // Arrays
+     let US = ["","Unvaccinated visitors from the United States need to provide a negative COVID-19 test result and quarantine to enter the United 
+     Kingdom.Fully vaccinated visitors from the United States can enter the United Kingdom without restrictions.","Most visitors from the United States 
+     will not be allowed to enter India","Most visitors from the United States will not be allowed to enter China.","Most visitors from the United States 
+     will not be allowed to enter Japan."];
+
+     let UK = ["Most visitors from the United Kingdom will not be allowed to enter the United States.","","Most visitors from the United Kingdom will 
+     not be allowed to enter India.","Most visitors from the United Kingdom will not be allowed to enter China.","Most visitors from the United Kingdom 
+     will not be allowed to enter Japan."];
+
+     let India = ["Most visitors from India will not be allowed to enter the United States.","Unvaccinated visitors from India need to provide a negative 
+     COVID-19 test result and quarantine to enter the United Kingdom.Fully vaccinated visitors from India can enter the United Kingdom without restrictions.","","Most visitors from India will not be allowed to enter China.","Most visitors 
+     from India will not be allowed to enter Japan."];
+
+     let China = ["Most visitors from China will not be allowed to enter the United States.","Unvaccinated visitors from China need to provide a 
+     negative COVID-19 test result and quarantine to enter the United Kingdom. Fully vaccinated visitors from China can enter the United Kingdom without 
+     restrictions.","Most visitors from China will not be allowed to enter India.","","Most visitors from China will not be allowed to enter the Japan."];
+
+     let Japan = ["Most visitors from Japan need to provide a negative COVID-19 test result to enter the United States.","Unvaccinated visitors from 
+     Japan need to provide a negative COVID-19 test result and quarantine to enter the United Kingdom.Fully vaccinated visitors from Japan can enter 
+     the United Kingdom without restrictions.","Most visitors from Japan will not be allowed to enter India.","Most visitors from Japan will not be allowed to enter China.",""];
+
+     let Countries = [US,UK,India,China,Japan];
+
+     let UserInput: &str = "US";
+    // Basic Logic
+     if UserInput == "US"{
+         println!("what country do u wanna go to?");
+         println!("Countries[0]");
+         println!("Countries[1]");
+         println!("Countries[2]");
+         println!("Countries[3]");
+         println!("Countries[4]");
+
+         let UserInput2: &str = "UK";
+         if UserInput2 == "US"{
+             println!("Countries[0][0]");
+             println!("Countries[0][1]");
+             println!("Countries[0][2]");
+             println!("Countries[0][3]");
+             println!("Countries[0][4]");
+         }         
+     }
+
+
+ }
