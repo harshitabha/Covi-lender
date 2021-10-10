@@ -2,25 +2,45 @@
 
     // Arrays
      let US = ["","Unvaccinated visitors from the United States need to provide a negative COVID-19 test result and quarantine to enter the United 
-     Kingdom.Fully vaccinated visitors from the United States can enter the United Kingdom without restrictions.","Most visitors from the United States 
-     will not be allowed to enter India","Most visitors from the United States will not be allowed to enter China.","Most visitors from the United States 
-     will not be allowed to enter Japan."]; // from this country
+     Kingdom.Fully vaccinated visitors from the United States can enter the United Kingdom without restrictions.Unvaccinated visitors from the United States will need to quarantine for 10 days upon entering the United Kingdom.
+     Fully vaccinated visitors with approved vaccination certificates do not need to quarantine.",
+     "Most visitors from the United States will not be allowed to enter India.Visitors from the United States will need to quarantine for 14 days upon entering India.Details and exceptions
+     Anyone arriving to India will be required to go into 7 days quarantine at an institution at their own cost, followed by 7 days self-quarantine.",
+     "Most visitors from the United States will not be allowed to enter China.Visitors from the United States will need to quarantine for 14 days upon entering China.",
+     "Most visitors from the United States will not be allowed to enter Japan.Visitors from the United States will need to quarantine for 14 days upon entering Japan."];
 
-     let UK = ["Most visitors from the United Kingdom will not be allowed to enter the United States.","","Most visitors from the United Kingdom will 
-     not be allowed to enter India.","Most visitors from the United Kingdom will not be allowed to enter China.","Most visitors from the United Kingdom 
-     will not be allowed to enter Japan."];
+     let UK = ["Most visitors from the United Kingdom will not be allowed to enter the United States.Visitors from the United Kingdom are not required to quarantine after entering the United States.Details and exceptions
+     Travelers are not required but recommended to quarantine between 7-10 days after arrival in the US.","","Most visitors from the United Kingdom will 
+     not be allowed to enter India.Visitors from the United Kingdom will need to quarantine for 14 days upon entering India.Details and exceptions
+     Anyone arriving to India will be required to go into 7 days quarantine at an institution at their own cost, followed by 7 days self-quarantine.",
+     "Most visitors from the United Kingdom will not be allowed to enter China.Visitors from the United Kingdom will need to quarantine for 14 days upon entering China.",
+     "Most visitors from the United Kingdom will not be allowed to enter Japan.Visitors from the United Kingdom will need to quarantine for 14 days upon entering Japan."];
 
-     let India = ["Most visitors from India will not be allowed to enter the United States.","Unvaccinated visitors from India need to provide a negative 
-     COVID-19 test result and quarantine to enter the United Kingdom.Fully vaccinated visitors from India can enter the United Kingdom without restrictions.","","Most visitors from India will not be allowed to enter China.","Most visitors 
-     from India will not be allowed to enter Japan."];
+     let India = ["Most visitors from India will not be allowed to enter the United States.Visitors from India are not required to quarantine after entering the United States.
+     Details and exceptions:Travelers are not required but recommended to quarantine between 7-10 days after arrival in the US.","Unvaccinated visitors from India need to provide a negative 
+     COVID-19 test result and quarantine to enter the United Kingdom.Fully vaccinated visitors from India can enter the United Kingdom without restrictions.Unvaccinated visitors from India will need to quarantine for 10 days upon entering the United Kingdom.
+     Fully vaccinated visitors with approved vaccination certificates do not need to quarantine.","","Most visitors from India will not be allowed to enter China.Visitors from India will need to quarantine for 14 days upon entering China.","Most visitors 
+     from India will not be allowed to enter Japan.Visitors from India will need to quarantine for 14 days upon entering Japan."];
 
-     let China = ["Most visitors from China will not be allowed to enter the United States.","Unvaccinated visitors from China need to provide a 
+     let China = ["Most visitors from China will not be allowed to enter the United States.Visitors from China are not required to quarantine after entering the United States.Details and exceptions
+     Travelers are not required but recommended to quarantine between 7-10 days after arrival in the US.","Unvaccinated visitors from China need to provide a 
      negative COVID-19 test result and quarantine to enter the United Kingdom. Fully vaccinated visitors from China can enter the United Kingdom without 
-     restrictions.","Most visitors from China will not be allowed to enter India.","","Most visitors from China will not be allowed to enter the Japan."];
+     restrictions. Unvaccinated visitors from China will need to quarantine for 10 days upon entering the United Kingdom.Fully vaccinated visitors with 
+     approved vaccination certificates do not need to quarantine.","Most visitors from China will not be allowed to enter India.Visitors from China will 
+     need to quarantine for 14 days upon entering India.Details and exceptions:Anyone arriving to India will be required to go into 7 days quarantine at an 
+     institution at their own cost, followed by 7 days self-quarantine.","","Most visitors from China will not be allowed to enter the Japan.Visitors from China will need to quarantine for 14 days upon entering Japan.
 
-     let Japan = ["Most visitors from Japan need to provide a negative COVID-19 test result to enter the United States.","Unvaccinated visitors from 
+     Details and exceptions
+     All travelers, including Japanese nationals, are required to quarantine at a location designated by the quarantine station chief. Travelers are required to take the COVID-19 test again on the 3rd day of quarantine. 
+     Travelers who test negative are still required to self-quarantine at home until completion of 14 days after entering Japan."];
+
+     let Japan = ["Most visitors from Japan need to provide a negative COVID-19 test result to enter the United States. Visitors from Japan are 
+     not required to quarantine after entering the United States.Details and exceptions.Travelers are not required but recommended to quarantine between 7-10 days after arrival in the US.","Unvaccinated visitors from 
      Japan need to provide a negative COVID-19 test result and quarantine to enter the United Kingdom.Fully vaccinated visitors from Japan can enter 
-     the United Kingdom without restrictions.","Most visitors from Japan will not be allowed to enter India.","Most visitors from Japan will not be allowed to enter China.",""];
+     the United Kingdom without restrictions.Unvaccinated visitors from Japan will need to quarantine for 10 days upon entering the United Kingdom.
+     Fully vaccinated visitors with approved vaccination certificates do not need to quarantine.","Most visitors from Japan will not be allowed to 
+     enter India. Visitors from Japan will need to quarantine for 14 days upon entering India.","Most visitors from Japan will not be allowed to 
+     enter China. Visitors from Japan will need to quarantine for 14 days upon entering China.",""];
 
      let Countries = [US,UK,India,China,Japan];
 
