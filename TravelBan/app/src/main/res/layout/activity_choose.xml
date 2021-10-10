@@ -35,7 +35,8 @@
                 <Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/dCountry"/>
+                    android:id="@+id/dCountry"
+                    />
             </LinearLayout>
 
             <LinearLayout
@@ -62,11 +63,12 @@
 
             <!--Date Picker-->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/arrival"
                 android:layout_centerHorizontal="true"
-                android:layout_above="@id/goButtons">
+                android:layout_above="@id/goButtons"
+                android:gravity="center">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -76,9 +78,15 @@
                     android:layout_marginRight="15dp"
                     android:textStyle="bold"
                     android:textSize="20sp"/>
-                <Spinner
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    style="?android:spinnerStyle"
+                    android:textSize="20sp"
+                    android:id="@+id/date"
+                    android:onClick="openDatePicker"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"

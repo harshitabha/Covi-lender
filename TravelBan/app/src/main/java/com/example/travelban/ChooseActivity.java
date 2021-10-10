@@ -2,27 +2,39 @@ package com.example.travelban;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class ChooseActivity extends AppCompatActivity implements View.OnClickListener{
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
-    ImageButton homeB;
-    ImageButton chooseB;
-    ImageButton calB;
-    Button info;
-    Button go;
+public class ChooseActivity
+        extends AppCompatActivity
+        implements View.OnClickListener, android.widget.DatePicker.OnDateChangedListener{
 
-    Spinner dCountry;
-    Spinner aCountry;
+    private ImageButton homeB;
+    private ImageButton chooseB;
+    private ImageButton calB;
+    private Button info;
+    private Button go;
+    private Button dateButton;
 
-    TextView infoCard;
+    private Spinner dCountry;
+    private Spinner aCountry;
+
+    private TextView infoCard;
+
+    private DatePickerDialog datePickerDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +47,7 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
         calB = (ImageButton) findViewById(R.id.calendarB);
         info = findViewById(R.id.getInfo);
         go = findViewById(R.id.start);
+        dateButton = (Button) findViewById(R.id.date);
         infoCard = findViewById(R.id.infoCard);
 
         // Nav Onclick Listeners
@@ -73,6 +86,11 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
         aCountry.setAdapter(adapter);
 
         info.setOnClickListener(this);
+
+        // date stuff
+        String tDate = DateFormat.getDateInstance().format(new Date());
+        dateButton.setText(tDate);
+        initDatePicker();
     }
 
     // on click listener for the info button
@@ -126,5 +144,60 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
         else if(country.equals("China")) index = 3;
         else index = 4;
         return index;
+    }
+
+    private void initDatePicker()
+    {
+        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener()
+        {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day)
+            {
+                month = month + 1;
+                String date = makeDateString(day, month, year);
+                dateButton.setText(date);
+            }
+        };
+
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+
+        int style = AlertDialog.THEME_HOLO_LIGHT;
+
+        datePickerDialog = new DatePickerDialog(this, style, dateSetListener, year, month, day);
+    }
+
+    //channing the date formatting so it days the month abr, date, then year to avoid confusion
+    private String makeDateString(int day, int month, int year)
+    {
+        return getMonthFormat(month) + " " + day + " " + year;
+    }
+
+    // figuring out which month string to return
+    private String getMonthFormat(int m)
+    {
+        if(m == 1) return "JAN";
+        else if(m == 2) return "FEB";
+        else if(m == 3) return "MAR";
+        else if(m == 4) return "APR";
+        else if(m == 5) return "MAY";
+        else if(m == 6) return "JUN";
+        else if(m == 7) return "JUL";
+        else if(m == 8) return "AUG";
+        else if(m == 9) return "SEPT";
+        else if(m == 10) return "OCT";
+        else if(m == 11) return "NOV";
+        return "DEC";
+    }
+    // on click listener for date picker
+    public void openDatePicker(View view) {
+        datePickerDialog.show();
+    }
+
+    @Override
+    public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
     }
 }
