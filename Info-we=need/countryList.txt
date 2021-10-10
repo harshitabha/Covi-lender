@@ -1,0 +1,35 @@
+Country List: america,india,china,japan,uk
+
+US Deaperture:
+UK:Unvaccinated visitors from the United States need to provide a negative COVID-19 test result and quarantine to enter the United Kingdom.
+    Fully vaccinated visitors from the United States can enter the United Kingdom without restrictions.
+India:Most visitors from the United States will not be allowed to enter India.
+China:Most visitors from the United States will not be allowed to enter China.
+Japan:Most visitors from the United States will not be allowed to enter Japan.
+
+UK Departure:
+US:Most visitors from the United Kingdom will not be allowed to enter the United States.
+India:Most visitors from the United Kingdom will not be allowed to enter India.
+China:Most visitors from the United Kingdom will not be allowed to enter China.
+Japan:Most visitors from the United Kingdom will not be allowed to enter Japan.
+
+India Departure:
+US:Most visitors from India will not be allowed to enter the United States.
+UK:Unvaccinated visitors from India need to provide a negative COVID-19 test result and quarantine to enter the United Kingdom.
+    Fully vaccinated visitors from India can enter the United Kingdom without restrictions.
+China:Most visitors from India will not be allowed to enter China.
+Japan:Most visitors from India will not be allowed to enter Japan.
+
+China Departure:
+US:Most visitors from China will not be allowed to enter the United States.
+UK:Unvaccinated visitors from China need to provide a negative COVID-19 test result and quarantine to enter the United Kingdom.
+    Fully vaccinated visitors from China can enter the United Kingdom without restrictions.
+India:Most visitors from China will not be allowed to enter India.
+Japan:Most visitors from China will not be allowed to enter Japan.
+
+Japan Departure:
+US:Most visitors from Japan need to provide a negative COVID-19 test result to enter the United States.
+UK:Unvaccinated visitors from Japan need to provide a negative COVID-19 test result and quarantine to enter the United Kingdom.
+    Fully vaccinated visitors from Japan can enter the United Kingdom without restrictions.
+India:Most visitors from Japan will not be allowed to enter India.
+China:Most visitors from Japan will not be allowed to enter China.
