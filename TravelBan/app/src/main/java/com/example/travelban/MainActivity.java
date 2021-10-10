@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // initilize vars
         homeB = (ImageButton) findViewById(R.id.homeB);
         chooseB = (ImageButton) findViewById(R.id.personalizeB);
-        calB = (ImageButton) findViewById(R.id.calendarB);
+        //calB = (ImageButton) findViewById(R.id.calendarB);
         
         //Nav onclick listeners
         homeB.setOnClickListener(new View.OnClickListener() {
@@ -40,14 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(choose);
             }
         });
-    
-        calB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent cal = new Intent(MainActivity.this, CalActivity.class);
-                startActivity(cal);
-            }
-        });
+
     }
 
     @Override

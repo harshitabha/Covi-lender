@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -52,7 +54,7 @@ public class ChooseActivity
         // initialize vars
         homeB = (ImageButton) findViewById(R.id.homeB);
         chooseB = (ImageButton) findViewById(R.id.personalizeB);
-        calB = (ImageButton) findViewById(R.id.calendarB);
+        //calB = (ImageButton) findViewById(R.id.calendarB);
         info = findViewById(R.id.getInfo);
         go = findViewById(R.id.start);
         dateButton = (Button) findViewById(R.id.date);
@@ -77,14 +79,6 @@ public class ChooseActivity
             }
         });
 
-        calB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent cal = new Intent(ChooseActivity.this, CalActivity.class);
-                startActivity(cal);
-            }
-        });
-
         dCountry = (Spinner) findViewById(R.id.dCountry);
         aCountry = findViewById(R.id.aCountry);
 
@@ -104,8 +98,19 @@ public class ChooseActivity
         go.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cal = new Intent(ChooseActivity.this, CalActivity.class);
-                startActivity(cal);
+                Calendar cal = Calendar.getInstance();
+                cal.set(Calendar.MONTH, mSelect);
+                cal.set(Calendar.DAY_OF_MONTH, dSelect);
+                cal.set(Calendar.YEAR, ySelect);
+                long arrival = cal.getTimeInMillis();
+
+                int[] endDate = dateGetter(selectedACountry, selectedDCountry, mSelect, dSelect, ySelect);
+                cal.set(Calendar.MONTH, endDate[0]);
+                cal.set(Calendar.DAY_OF_MONTH, endDate[1]);
+                cal.set(Calendar.YEAR, endDate[2]);
+                long endQuarentine = cal.getTimeInMillis();
+
+                addEvent("Required Quarantine", selectedACountry, arrival, endQuarentine);
             }
         });
     }
@@ -122,8 +127,26 @@ public class ChooseActivity
 
     }
 
-    private void updateInfoCard(int countryA, int countryB) {
+    // add how long they need to quarantine to a calendar
+    public void addEvent(String title, String location, long begin, long end) {
+        Intent intent = new Intent(Intent.ACTION_INSERT);
+        intent.setData(CalendarContract.Events.CONTENT_URI);
+        intent.putExtra(CalendarContract.Events.TITLE, title);
+        intent.putExtra(CalendarContract.Events.EVENT_LOCATION, location);
+        intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, begin);
+        intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, end);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        } else {
+            Toast.makeText(ChooseActivity.this, "There is no app that can handle this action", Toast.LENGTH_LONG).show();
+        }
+    }
 
+    private void updateInfoCard(int countryA, int countryB) {
+        /**
+         * order for each is as follows
+         * {us, uk, india, china, japan}
+        */
         String[] US = {"",
                 "Unvaccinated visitors from the United States need to provide a negative COVID-19 test result and quarantine to enter the United Kingdom." +
                         " Fully vaccinated visitors from the United States can enter the United Kingdom without restrictions. Unvaccinated visitors from the United States will " +
@@ -157,8 +180,8 @@ public class ChooseActivity
                 "the United States. Details and exceptions apply. Travelers are not required but recommended to quarantine between 7 - 10 days after arrival in the US.",
                 "Unvaccinated visitors from China need to provide a negative COVID -19 test result and quarantine to enter the United Kingdom. Fully vaccinated" +
                         "visitors from China can enter the United Kingdom without restrictions. Unvaccinated visitors from China will need to quarantine for " +
-                        "10 days upon entering the United Kingdom.Fully vaccinated visitors with approved vaccination certificates do not need to quarantine.",
-                "Most visitors from China will not be allowed to enter India.Visitors from China will need to quarantine for 14 days upon entering India. Details and exceptions apply." +
+                        "10 days upon entering the United Kingdom. Fully vaccinated visitors with approved vaccination certificates do not need to quarantine.",
+                "Most visitors from China will not be allowed to enter India. Visitors from China will need to quarantine for 14 days upon entering India. Details and exceptions apply." +
                         " Anyone arriving to India will be required to go into 7 days quarantine at an institution at their own cost, followed by 7 days self -quarantine. ",
                 " ",
                 "Most visitors from China will not be allowed to enter the Japan. Visitors from China will need to quarantine for 14 days upon entering Japan. Details and exceptions " +
@@ -203,6 +226,7 @@ public class ChooseActivity
         return makeDateString(dSelect, month, ySelect);
     }
 
+    // pick your date
     private void initDatePicker() {
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -255,12 +279,132 @@ public class ChooseActivity
         datePickerDialog.show();
     }
 
-    // getter methods
-    public static int getMonth() { return mSelect; }
-    public static int getDay() { return dSelect; }
-    public static int getYear() { return ySelect; }
-    public static String getDCountry() { return selectedDCountry; }
-    public static String getACountry() { return selectedACountry; }
-    public static Boolean getDateSet() { return dateSet; }
+    private int[] dateGetter(String aCountry, String dCountry, int mon, int day, int year){
+        int qua1 = 14;
+        int qua2 = 10;
+        int qua3 = 7;
+
+        int qDate;
+
+        if(dCountry.equals("USA")){
+            if(aCountry.equals("United Kingdom")){
+                qDate = day + qua2;
+            }
+            else if(aCountry.equals("India")){
+                qDate = day + qua1;
+            }
+            else if(aCountry.equals("China")){
+                qDate = day + qua1;
+            }
+            else if(aCountry.equals("Japan")){
+                qDate = day + qua1;
+            }
+        }
+        else if(dCountry.equals("United Kingdom")){
+            if(aCountry.equals("USA")){
+                qDate = day + qua3;
+            }
+            else if(aCountry.equals("India")){
+                qDate = day + qua1;
+            }
+            else if(aCountry.equals("China")){
+                qDate = day + qua1;
+            }
+            else if(aCountry.equals("Japan")){
+                qDate = day + qua1;
+            }
+        }
+        else if(dCountry.equals("India")){
+            if(aCountry.equals("USA")){
+                qDate = day + qua3;
+            }
+            else if(aCountry.equals("United Kingdom")){
+                qDate = day + qua2;
+            }
+            else if(aCountry.equals("China")){
+                qDate = day + qua1;
+            }
+            else if(aCountry.equals("Japan")){
+                qDate = day + qua1;
+            }
+        }
+        else if(dCountry.equals("China")){
+            if(aCountry.equals("USA")){
+                qDate = day + qua3;
+            }
+            else if(aCountry.equals("United Kingdom")){
+                qDate = day + qua1;
+            }
+            else if(aCountry.equals("India")){
+                qDate = day + qua2;
+            }
+            else if(aCountry.equals("Japan")){
+                qDate = day + qua2;
+            }
+        }
+        else{ // traveling from japan
+            if(aCountry.equals("USA")){
+                qDate = day + qua3;
+            }
+            else if(aCountry.equals("United Kingdom")){
+                qDate = day + qua2;
+            }
+            else if(aCountry.equals("India")){
+                qDate = day + qua1;
+            }
+            else if(aCountry.equals("China")){
+                qDate = day + qua1;
+            }
+        }
+        return formatDate(mon, day, year);
+    }
+
+    private int[] formatDate(int m, int d, int y)
+    {
+        int daysInMonth = number_of_days(m, leap_year(y));
+        int day_of_month;
+        if(d > daysInMonth) // if the date goes to the next month
+        {
+            daysInMonth = number_of_days((m + 1) % 12, leap_year(y)); // modular div makes sure the month is one of the 12 months
+            if(m == 12)
+            {
+                m = 1;
+                y++;
+            }
+        }
+        day_of_month = d % daysInMonth;
+
+        int[] date = {m, day_of_month, y};
+        return date;
+    }
+
+    //determines if the year is a leap Year
+    private int leap_year(int y){
+        if(y % 4 == 0) return 1;
+        else return 0;
+    }
+
+    //determines the number of days in the month
+    private int number_of_days(int month, int leap)
+    {
+        if(month == 0) month = 12;
+        int numofDays;
+        if(month < 8 && month % 2 == 1) numofDays = 31;
+        else if(month < 8 && month % 2 == 0 && month != 2) numofDays = 30;
+        else if(month >= 8 && month % 2 == 0) numofDays = 31;
+        else if(month >= 8 && month % 2 == 1) numofDays = 30;
+
+
+        else
+        {
+            //the number of days in feb in a leap year
+            if(leap == 1) numofDays = 29;
+                //the number of days in feb in a normal year
+            else numofDays = 28;
+        }
+
+        return numofDays;
+    }
+
 
 }
